@@ -1,22 +1,23 @@
 package com.github.javafaker.idnumbers;
 
+import com.github.javafaker.AbstractFakerTest;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class SwedishIdNumberTest {
+public class SwedishIdNumberTest extends AbstractFakerTest {
 
     @Test
     public void valid() {
-        SvSEIdNumber idNumber = new SvSEIdNumber();
+        SvSEIdNumber idNumber = new SvSEIdNumber(faker);
         assertThat(idNumber.validSwedishSsn("670919-9530"), is(true));
         assertThat(idNumber.validSwedishSsn("811228-9874"), is(true));
     }
 
     @Test
     public void invalid() {
-        SvSEIdNumber idNumber = new SvSEIdNumber();
+        SvSEIdNumber idNumber = new SvSEIdNumber(faker);
         assertThat(idNumber.validSwedishSsn("8112289873"), is(false));
         assertThat(idNumber.validSwedishSsn("foo228-9873"), is(false));
         assertThat(idNumber.validSwedishSsn("811228-9873"), is(false));

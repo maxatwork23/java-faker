@@ -27,15 +27,15 @@ public class IdNumber {
      * Specified as #{IDNumber.valid_sv_se_ssn} in sv-SE.yml
      */
     public String validSvSeSsn() {
-        SvSEIdNumber svSEIdNumber = new SvSEIdNumber();
-        return svSEIdNumber.getValidSsn(faker);
+        SvSEIdNumber svSEIdNumber = new SvSEIdNumber(faker);
+        return svSEIdNumber.getValidSsn();
     }
 
     /**
      * Specified as #{IDNumber.invalid_sv_se_ssn} in sv-SE.yml
      */
     public String invalidSvSeSsn() {
-        SvSEIdNumber svSEIdNumber = new SvSEIdNumber();
-        return svSEIdNumber.getInvalidSsn(faker);
+        SvSEIdNumber svSEIdNumber = new SvSEIdNumber(faker);
+        return svSEIdNumber.getInvalidSsn();
     }
 }

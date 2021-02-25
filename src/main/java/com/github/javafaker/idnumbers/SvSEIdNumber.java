@@ -13,23 +13,29 @@ import java.util.Date;
  * https://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)
  */
 public class SvSEIdNumber {
+
+    private final Faker faker;
     private static final String[] validPatterns = {"######-####", "######+####"};
 
-    public String getValidSsn(Faker f) {
+    public SvSEIdNumber(Faker faker) {
+        this.faker = faker;
+    }
+
+    public String getValidSsn() {
         String candidate = "";
         while (!validSwedishSsn(candidate)) {
-            String pattern = getPattern(f);
-            candidate = f.numerify(pattern);
+            String pattern = getPattern(faker);
+            candidate = faker.numerify(pattern);
         }
 
         return candidate;
     }
 
-    public String getInvalidSsn(Faker f) {
+    public String getInvalidSsn() {
         String candidate = "121212-1212"; // Seed with a valid number
         while (validSwedishSsn(candidate)) {
-            String pattern = getPattern(f);
-            candidate = f.numerify(pattern);
+            String pattern = getPattern(faker);
+            candidate = faker.numerify(pattern);
         }
 
         return candidate;

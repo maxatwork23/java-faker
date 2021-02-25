@@ -100,7 +100,7 @@ public class Internet {
      * @param text   optional custom text on the selected picture
      * @return an url to a random image with the given characteristics.
      */
-    public String image(Integer width, Integer height, Boolean gray, String text) {
+    public String image(int width, int height, boolean gray, String text) {
         return String.format("http://lorempixel.com/%s%s/%s/%s/%s",
                 gray ? "g/" : StringUtils.EMPTY, width, height, faker.fakeValuesService().resolve("internet.image_category", this, faker),
                 StringUtils.isEmpty(text) ? StringUtils.EMPTY : text);
